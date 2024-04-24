@@ -1,0 +1,31 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.example.Simple.API.config;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.web.config.SpringDataJacksonConfiguration;
+
+/**
+ *
+ * @author Manoel Batista <manoelbatista902@gmail.com>
+ */
+@Configuration
+public class GeneralConfig {
+    @Bean
+    public ObjectMapper mapper(){
+        ObjectMapper objectMapper = new ObjectMapper();
+        
+        JavaTimeModule timeM = new JavaTimeModule();
+        SpringDataJacksonConfiguration.PageModule pageModule = new SpringDataJacksonConfiguration.PageModule();
+        
+        objectMapper.registerModule(timeM);
+        objectMapper.registerModule(pageModule);
+        
+        return objectMapper;
+    }
+}

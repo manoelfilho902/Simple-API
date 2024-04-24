@@ -5,10 +5,12 @@
 package com.example.Simple.API.model.entity;
 
 import com.example.Simple.API.model.entity.common.BaseEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 /**
@@ -21,7 +23,10 @@ public class Pessoa extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
+    @NotBlank()
     private String nomeCompleto;
+    @Column(nullable = false)
     private LocalDate dataDeNascimento;
 
     public Pessoa() {
