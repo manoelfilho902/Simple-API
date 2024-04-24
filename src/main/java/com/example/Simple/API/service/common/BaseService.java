@@ -4,6 +4,7 @@
  */
 package com.example.Simple.API.service.common;
 
+import com.example.Simple.API.model.entity.common.BaseEntity;
 import com.example.Simple.API.repository.common.BaseRepository;
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +20,7 @@ import org.springframework.data.repository.query.FluentQuery;
  * @param <T> Entity class
  * @param <ID> id Class
  */
-public abstract class BaseService<T extends Object, ID extends Object> {
+public abstract class BaseService<T extends BaseEntity, ID extends Object> {
 
     private final BaseRepository<T, ID> repository;
 
@@ -27,7 +28,7 @@ public abstract class BaseService<T extends Object, ID extends Object> {
         this.repository = repository;
     }
 
-    public  List<T> saveAll(List<T> entities) {
+    public List<T> saveAll(List<T> entities) {
         return repository.saveAll(entities);
     }
 
@@ -46,7 +47,7 @@ public abstract class BaseService<T extends Object, ID extends Object> {
     public long count() {
         return repository.count();
     }
-    
+
     public long count(Example<T> entity) {
         return repository.count(entity);
     }
@@ -72,7 +73,7 @@ public abstract class BaseService<T extends Object, ID extends Object> {
     }
 
     public boolean exists(Example<T> example) {
-       return repository.exists(example);
+        return repository.exists(example);
     }
 
     /**
