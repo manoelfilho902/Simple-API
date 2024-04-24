@@ -20,7 +20,7 @@ public class DataSet {
     public DataSource dataSource() {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.sqlite.JDBC");
-        dataSource.setUrl("jdbc:sqlite:memory:myDb?cache=shared");
+        dataSource.setUrl("jdbc:sqlite:myDb");
         dataSource.setUsername("user");
         dataSource.setPassword("teste1");
         return dataSource;

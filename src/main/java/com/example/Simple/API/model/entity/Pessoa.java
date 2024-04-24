@@ -4,11 +4,11 @@
  */
 package com.example.Simple.API.model.entity;
 
+import com.example.Simple.API.model.entity.common.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -16,9 +16,7 @@ import java.time.LocalDate;
  * @author Manoel Batista <manoelbatista902@gmail.com>
  */
 @Entity
-public class pessoa implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Pessoa extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +24,10 @@ public class pessoa implements Serializable {
     private String nomeCompleto;
     private LocalDate dataDeNascimento;
 
-    public pessoa() {
+    public Pessoa() {
     }
 
-    public pessoa(Long id, String nomeCompleto, LocalDate dataDeNascimento) {
+    public Pessoa(Long id, String nomeCompleto, LocalDate dataDeNascimento) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.dataDeNascimento = dataDeNascimento;
